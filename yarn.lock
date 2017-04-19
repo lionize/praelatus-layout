@@ -4181,6 +4181,10 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
+react-fontawesome@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-fontawesome/-/react-fontawesome-1.5.0.tgz#879d1b2aa5c48bba551e9237f84993217b5645c4"
+
 react-html-attributes@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-html-attributes/-/react-html-attributes-1.2.1.tgz#e697b510710d771193a9e80fe1cceee0158712a0"
