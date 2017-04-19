@@ -86,6 +86,13 @@ const tickets = [
     summary: 'Ticket Summary',
     description: 'Ticket Description',
   },
+  {
+    id: 2,
+    key: 'TICKET-2',
+    type: 'arrow-up',
+    summary: 'Ticket Summary',
+    description: 'Ticket Description',
+  }
 ];
 
 class App extends Component {

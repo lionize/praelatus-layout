@@ -12,6 +12,7 @@ const ListItem = glamorous.div((props, theme) => ({
   flex: '1 1 auto',
   display: 'flex',
   alignItems: 'stretch',
+  backgroundColor: props.active ? 'rgba(0,0,0,0.040)' : 'inherit',
 }));
 
 const ItemLink = glamorous.a((props, theme) => ({
@@ -35,13 +36,13 @@ const Summary = glamorous.div((props, theme) => ({
 export default ({ tickets = [] }) => (
   <TicketList>
     {tickets.map(ticket => (
-      <ListItem key={ticket.id}>
+      <ListItem active={ticket.id === 1} key={ticket.id}>
         <ItemLink href="#">
           <FontAwesome
             style={{ fontSize: '1.5em', padding: '8px' }}
             name={ticket.type}
           />
-          <Div>
+          <Div padding='0 0.5rem 0 0.5rem'>
             <Title>{ticket.key}</Title>
             <Summary>{ticket.summary}</Summary>
           </Div>
