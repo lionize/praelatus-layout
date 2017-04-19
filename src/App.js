@@ -19,17 +19,23 @@ const Wrapper = glamorous.div((props, theme) => ({
 }));
 
 const MainHeader = glamorous.div((props, theme) => ({
-  height: '40px',
+  height: '50px',
   borderBottom: theme.borders.dark,
+  display: 'flex',
+  alignItems: 'center',
 }))
 
-const Brand = glamorous.h1((props, theme) => ({
-  fontSize: '1.5em',
+const Brand = glamorous.a((props, theme) => ({
+  fontSize: '1.1em',
+  fontWeight: 'bold',
+  padding: '0 1rem 0 1rem',
+  color: 'inherit',
+  textDecoration: 'none',
 }))
 
 const Content = glamorous.div((props, theme) => ({
   display: 'flex',
-  height: 'calc(100vh - 40px)',
+  height: 'calc(100vh - 50px)',
 }));
 
 const Header = glamorous.div((props, theme) => ({
@@ -44,9 +50,10 @@ const Header = glamorous.div((props, theme) => ({
 
 const ListHeader = glamorous.div((props, theme) => ({
   margin: 0,
+  padding: '0 1rem 0 1rem',
   fontSize: '1rem',
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   alignItems: 'center',
   height: '50px',
   borderBottom: theme.borders.light,
@@ -88,7 +95,7 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <MainHeader>
-            <Brand>praelatus.io</Brand>
+            <Brand href='/'>praelatus</Brand>
           </MainHeader>
           <Content>
             <LeftSidebar>
