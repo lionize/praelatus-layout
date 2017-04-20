@@ -18,11 +18,11 @@ const MainHeader = glamorous.div((props, theme) => ({
 
 const Body = glamorous.h1((props, theme) => ({}));
 
-export default () => (
+export default ({ ticket }) => (
   <Main>
     <MainHeader>
       <H1 fontSize="1em">
-        TICKET-1
+        {ticket.key}
       </H1>
     </MainHeader>
     <Body />
