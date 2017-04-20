@@ -38,7 +38,7 @@ export default ({ tickets = [] }) => (
     {tickets.map(ticket => (
       <ListItem active={ticket.id === 1} key={ticket.id}>
         <ItemLink href="#">
-          <ListItemIcon type={ticket.type} />
+          <ListItemIcon priority={ticket.priority} />
           <Div padding='0 0.5rem 0 0.5rem'>
             <Title>{ticket.key}</Title>
             <Summary>{ticket.summary}</Summary>

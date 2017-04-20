@@ -75,21 +75,21 @@ const tickets = [
   {
     id: 0,
     key: 'TICKET-0',
-    type: 'arrow-up',
+    priority: 'high',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
   },
   {
     id: 1,
     key: 'TICKET-1',
-    type: 'arrow-down',
+    priority: 'low',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
   },
   {
     id: 2,
     key: 'TICKET-2',
-    type: 'arrow-up',
+    priority: 'high',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
   }

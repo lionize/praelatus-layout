@@ -6,21 +6,28 @@ const colors = {
   green: '#8BC34A',
 }
 
-const typeColors = {
-  'arrow-up': 'green',
-  'arrow-down': 'red',
+const priorityColors = {
+  'high': 'red',
+  'low': 'green',
 }
 
-const colorSelector = type => colors[typeColors[type]] || 'inherit'
+const priorityNames = {
+  'high': 'arrow-up',
+  'low': 'arrow-down',
+}
 
-const ListItemIcon = ({ type }) => (
+const colorSelector = priority => colors[priorityColors[priority]] || 'inherit'
+
+const nameSelector = priority => priorityNames[priority]
+
+const ListItemIcon = ({ priority }) => (
   <FA
     style={{
       fontSize: '1.5em',
       padding: '8px',
-      color: colorSelector(type),
+      color: colorSelector(priority),
     }}
-    name={type}
+    name={nameSelector(priority)}
   />
 )
 
