@@ -7,7 +7,7 @@ import Content from './Content'
 css.global('html, body', { padding: 0, margin: 0 });
 css.global('body', {
   bodySizing: 'border-box',
-  fontFamily: "system-ui, 'Segoe UI'",
+  fontFamily: "'Work Sans', system-ui, 'Segoe UI'",
 });
 
 const Wrapper = glamorous.div((props, theme) => ({
