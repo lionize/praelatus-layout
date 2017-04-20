@@ -1,8 +1,7 @@
 import React from 'react'
 import glamorous from 'glamorous'
 const { H1 } = glamorous
-import FontAwesome from 'react-fontawesome'
-import TicketList from './TicketList'
+import ContentSidebar from './ContentSidebar'
 
 const Content = glamorous.div((props, theme) => ({
   display: 'flex',
@@ -19,24 +18,7 @@ const MainHeader = glamorous.div((props, theme) => ({
   borderBottom: theme.borders.light,
 }));
 
-const ListHeader = glamorous.div((props, theme) => ({
-  margin: 0,
-  padding: '0 1rem 0 1rem',
-  fontSize: '1rem',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  height: '50px',
-  borderBottom: theme.borders.light,
-}));
-
 const Body = glamorous.h1((props, theme) => ({}));
-
-const LeftSidebar = glamorous.div((props, theme) => ({
-  flex: '0 0 30%',
-  borderRight: theme.borders.dark,
-  maxWidth: '300px',
-}));
 
 const Main = glamorous.div((props, theme) => ({
   flex: '2 0 0%',
@@ -68,16 +50,7 @@ const tickets = [
 
 export default () => (
   <Content>
-    <LeftSidebar>
-      <ListHeader>
-        <FontAwesome style={{ fontSize: '1.4em' }} name="arrow-left" />
-        <H1 margin="0" fontSize="1.2em" textAlign="center">
-          Tickets
-        </H1>
-        <FontAwesome style={{ fontSize: '1.4em' }} name="cog" />
-      </ListHeader>
-      <TicketList tickets={tickets} />
-    </LeftSidebar>
+    <ContentSidebar tickets={tickets} />
     <Main>
       <MainHeader>
         <H1 fontSize="1em">
