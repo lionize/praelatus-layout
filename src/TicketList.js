@@ -8,8 +8,14 @@ const TicketList = glamorous.div((props, theme) => ({
 }));
 
 
-export default ({ tickets = [] }) => (
+export default ({ tickets = [], handleClick, current }) => (
   <TicketList>
-    {tickets.map(ticket => <TicketListItem key={ticket.id} ticket={ticket} />)}
+    {tickets.map(ticket =>
+      <TicketListItem
+        current={current}
+        handleClick={handleClick}
+        key={ticket.id}
+        ticket={ticket}
+      />)}
   </TicketList>
 );

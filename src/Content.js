@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import glamorous from 'glamorous'
 import ContentSidebar from './ContentSidebar'
 import ContentMain from './ContentMain'
 
-const Content = glamorous.div((props, theme) => ({
+const ContentWrapper = glamorous.div((props, theme) => ({
   display: 'flex',
   height: 'calc(100vh - 50px)',
 }));
@@ -32,9 +32,28 @@ const tickets = [
   }
 ];
 
-export default () => (
-  <Content>
-    <ContentSidebar tickets={tickets} />
-    <ContentMain />
-  </Content>
-)
+export default class Content extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      currentTicket: tickets[0],
+    }
+  }
+
+  handleChangeTicket = (id) => {
+    this.setState(() => ({
+      currentTicket: tickets[id],
+    }))
+  }
+
+  render() {
+    const { currentTicket } = this.state
+    return (
+      <ContentWrapper>
+        <ContentSidebar handleClick={this.handleChangeTicket} current={currentTicket.id} tickets={tickets} />
+        <ContentMain ticket={currentTicket} />
+      </ContentWrapper>
+    )
+  }
+}

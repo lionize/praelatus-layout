@@ -30,8 +30,8 @@ const ItemLink = glamorous.a((props, theme) => ({
   justifyContent: 'flex-start',
 }));
 
-const TicketListItem = ({ ticket: { id, key, priority, summary }}) => (
-  <ListItem active={id === 1} key={id}>
+const TicketListItem = ({ ticket: { id, key, priority, summary }, current, handleClick }) => (
+  <ListItem onClick={() => handleClick(id)} active={id === current}>
     <ItemLink href="#">
       <ListItemIcon priority={priority} />
       <Div padding='0 0.5rem 0 0.5rem'>

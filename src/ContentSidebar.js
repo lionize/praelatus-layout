@@ -21,8 +21,7 @@ const ListHeader = glamorous.div((props, theme) => ({
   borderBottom: theme.borders.light,
 }));
 
-
-export default ({ tickets }) => (
+export default ({ tickets, current, handleClick }) => (
   <ContentSidebar>
     <ListHeader>
       <FontAwesome style={{ fontSize: '1.4em' }} name="arrow-left" />
@@ -31,6 +30,6 @@ export default ({ tickets }) => (
       </H1>
       <FontAwesome style={{ fontSize: '1.4em' }} name="cog" />
     </ListHeader>
-    <TicketList tickets={tickets} />
+    <TicketList current={current} handleClick={handleClick} tickets={tickets} />
   </ContentSidebar>
 )
