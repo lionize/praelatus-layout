@@ -1,7 +1,7 @@
 import React from 'react';
 import glamorous from 'glamorous';
-import FontAwesome from 'react-fontawesome';
 const { Div } = glamorous;
+import ListItemIcon from './ListItemIcon'
 
 const TicketList = glamorous.div((props, theme) => ({
   display: 'flex',
@@ -38,10 +38,7 @@ export default ({ tickets = [] }) => (
     {tickets.map(ticket => (
       <ListItem active={ticket.id === 1} key={ticket.id}>
         <ItemLink href="#">
-          <FontAwesome
-            style={{ fontSize: '1.5em', padding: '8px' }}
-            name={ticket.type}
-          />
+          <ListItemIcon type={ticket.type} />
           <Div padding='0 0.5rem 0 0.5rem'>
             <Title>{ticket.key}</Title>
             <Summary>{ticket.summary}</Summary>
