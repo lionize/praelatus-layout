@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import glamorous, { ThemeProvider } from 'glamorous';
 const { H1 } = glamorous;
-import FontAwesome from 'react-fontawesome';
-import TicketList from './TicketList';
 import { css } from 'glamor';
+import FontAwesome from 'react-fontawesome';
+import Header from './Header'
+import TicketList from './TicketList';
 
 css.global('html, body', { padding: 0, margin: 0 });
 css.global('body', {
@@ -18,27 +19,12 @@ const Wrapper = glamorous.div((props, theme) => ({
   minWidth: '500px',
 }));
 
-const MainHeader = glamorous.div((props, theme) => ({
-  height: '50px',
-  borderBottom: theme.borders.dark,
-  display: 'flex',
-  alignItems: 'center',
-}))
-
-const Brand = glamorous.a((props, theme) => ({
-  fontSize: '1.1em',
-  fontWeight: 'bold',
-  padding: '0 1rem 0 1rem',
-  color: 'inherit',
-  textDecoration: 'none',
-}))
-
 const Content = glamorous.div((props, theme) => ({
   display: 'flex',
   height: 'calc(100vh - 50px)',
 }));
 
-const Header = glamorous.div((props, theme) => ({
+const MainHeader = glamorous.div((props, theme) => ({
   margin: 0,
   fontSize: '1rem',
   display: 'flex',
@@ -101,9 +87,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <MainHeader>
-            <Brand href='/'>praelatus</Brand>
-          </MainHeader>
+          <Header />
           <Content>
             <LeftSidebar>
               <ListHeader>
@@ -116,11 +100,11 @@ class App extends Component {
               <TicketList tickets={tickets} />
             </LeftSidebar>
             <Main>
-              <Header>
+              <MainHeader>
                 <H1 fontSize="1em">
                   TICKET-1
                 </H1>
-              </Header>
+              </MainHeader>
               <Body />
             </Main>
           </Content>
