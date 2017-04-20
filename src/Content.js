@@ -1,27 +1,11 @@
 import React from 'react'
 import glamorous from 'glamorous'
-const { H1 } = glamorous
 import ContentSidebar from './ContentSidebar'
+import ContentMain from './ContentMain'
 
 const Content = glamorous.div((props, theme) => ({
   display: 'flex',
   height: 'calc(100vh - 50px)',
-}));
-
-const MainHeader = glamorous.div((props, theme) => ({
-  margin: 0,
-  fontSize: '1rem',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '50px',
-  borderBottom: theme.borders.light,
-}));
-
-const Body = glamorous.h1((props, theme) => ({}));
-
-const Main = glamorous.div((props, theme) => ({
-  flex: '2 0 0%',
 }));
 
 const tickets = [
@@ -51,13 +35,6 @@ const tickets = [
 export default () => (
   <Content>
     <ContentSidebar tickets={tickets} />
-    <Main>
-      <MainHeader>
-        <H1 fontSize="1em">
-          TICKET-1
-        </H1>
-      </MainHeader>
-      <Body />
-    </Main>
+    <ContentMain />
   </Content>
 )
