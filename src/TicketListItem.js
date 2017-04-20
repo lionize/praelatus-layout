@@ -16,6 +16,9 @@ const ListItem = glamorous.div((props, theme) => ({
   display: 'flex',
   alignItems: 'stretch',
   backgroundColor: props.active ? 'rgba(0,0,0,0.040)' : 'inherit',
+  '&:hover': {
+    backgroundColor: props.active ? 'rgba(0,0,0,0.040)' : 'rgba(0,0,0,0.020)'
+  }
 }));
 
 const ItemLink = glamorous.a((props, theme) => ({
