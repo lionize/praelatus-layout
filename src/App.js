@@ -12,7 +12,7 @@ css.global('body', {
 
 const Wrapper = glamorous.div((props, theme) => ({
   height: '100vh',
-  color: theme.main.color,
+  color: theme.colors.dark,
   WebkitFontSmoothing: 'antialiased',
   minWidth: '500px',
 }));

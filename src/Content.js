@@ -15,6 +15,7 @@ const tickets = [
     priority: 'high',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
+    createdAt: '2017-04-12T11:46:20.525186Z',
   },
   {
     id: 1,
@@ -22,6 +23,7 @@ const tickets = [
     priority: 'low',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
+    createdAt: '2017-05-05T11:46:20.525186Z',
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ const tickets = [
     priority: 'high',
     summary: 'Ticket Summary',
     description: 'Ticket Description',
+    createdAt: '2017-02-05T11:46:20.525186Z',
   }
 ];
 
