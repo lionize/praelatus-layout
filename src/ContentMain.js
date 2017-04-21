@@ -2,6 +2,7 @@ import React from 'react'
 import glamorous from 'glamorous'
 const { H1 } = glamorous
 import FA from 'react-fontawesome'
+import Label from './Label'
 
 const Main = glamorous.div((props, theme) => ({
   flex: '2 0 0%',
@@ -23,15 +24,21 @@ const Body = glamorous.div((props, theme) => ({
 }));
 
 const CreatedAt = glamorous.div((props, theme) => ({
+  fontSize: '0.9em',
   color: theme.colors.light,
+  marginBottom: '1.5em',
 }))
 
-const Summary = glamorous.p((props, theme) => ({
+const Labels = glamorous.div((props, theme) => ({
+  marginBottom: '1.2em',
+}))
+
+const Summary = glamorous.div((props, theme) => ({
   fontSize: '1.3em',
   fontWeight: 'bold',
 }))
 
-const Description = glamorous.p((props, theme) => ({
+const Description = glamorous.div((props, theme) => ({
 }))
 
 const formatDate = date => {
@@ -50,8 +57,19 @@ export default ({ ticket }) => (
       <CreatedAt>
         {<FA name="clock-o" />} {formatDate(ticket.createdAt)}
       </CreatedAt>
+      <Labels>
+        {!!ticket.labels.length &&
+          ticket.labels.map(label => (
+            <Label key={label.id} name={label.name} />
+          ))
+        }
+      </Labels>
       <Summary>{ticket.summary}</Summary>
-      <Description>{ticket.description}</Description>
+      <Description>
+        {ticket.description.split('\n').map(p => (
+          <p>{p}</p>
+        ))}
+      </Description>
     </Body>
   </Main>
 )

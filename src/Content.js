@@ -13,9 +13,19 @@ const tickets = [
     id: 0,
     key: 'TICKET-0',
     priority: 'high',
-    summary: 'Ticket Summary',
-    description: 'Ticket Description',
+    summary: 'Create design for the site',
+    description: "The site currently has a shitty design. We need to revamp it with modern styling practices to create a consist, flowing design.\nIt's important that we ensure maximum usability from the user's standard and guarantee that we provide a friendly experience.",
     createdAt: '2017-04-12T11:46:20.525186Z',
+    labels: [
+      {
+        id: 1,
+        name: 'test',
+      },
+      {
+        id: 2,
+        name: 'documentation',
+      }
+    ]
   },
   {
     id: 1,
@@ -24,6 +34,7 @@ const tickets = [
     summary: 'Ticket Summary',
     description: 'Ticket Description',
     createdAt: '2017-05-05T11:46:20.525186Z',
+    labels: [],
   },
   {
     id: 2,
@@ -32,6 +43,7 @@ const tickets = [
     summary: 'Ticket Summary',
     description: 'Ticket Description',
     createdAt: '2017-02-05T11:46:20.525186Z',
+    labels: [],
   }
 ];
 
