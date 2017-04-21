@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import glamorous, { ThemeProvider } from 'glamorous';
 import { css } from 'glamor';
 import Header from './Header'
-import Content from './Content'
+import TicketContent from './TicketContent'
 
 css.global('html, body', { padding: 0, margin: 0 });
 css.global('body', {
@@ -24,7 +24,7 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header />
-          <Content />
+          <TicketContent />
         </Wrapper>
       </ThemeProvider>
     );
