@@ -2,7 +2,6 @@ import React from 'react'
 import glamorous from 'glamorous'
 const { H1 } = glamorous
 import FontAwesome from 'react-fontawesome'
-import TicketList from './TicketList'
 
 const ContentSidebar = glamorous.div((props, theme) => ({
   flex: '0 0 30%',
@@ -21,15 +20,15 @@ const ListHeader = glamorous.div((props, theme) => ({
   borderBottom: theme.borders.light,
 }));
 
-export default ({ tickets, current, handleClick }) => (
+export default ({ headerText, list }) => (
   <ContentSidebar>
     <ListHeader>
       <FontAwesome style={{ fontSize: '1.4em' }} name="arrow-left" />
       <H1 margin="0" fontSize="1.2em" textAlign="center">
-        Tickets
+        {headerText}
       </H1>
       <FontAwesome style={{ fontSize: '1.4em' }} name="cog" />
     </ListHeader>
-    <TicketList current={current} handleClick={handleClick} tickets={tickets} />
+    {list}
   </ContentSidebar>
 )
