@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import Content from './Content'
 import TicketSidebar from './TicketSidebar'
 import TicketMain from './TicketMain'
@@ -58,13 +59,18 @@ export default class TicketContent extends React.Component {
   render() {
     const { match } = this.props
 
+    if (tickets.length && !match.params.ticketId) {
+      return (
+        <Redirect to={`/tickets/${tickets[0].id}`} />
+      )
+    }
+
     return (
       <div>
         <Content>
           <TicketSidebar />
 
           {/*
-            1) Add Redirect to first item if tickets is not empty.
             2) Add conditionals for rendering not found messages if tickets is empty.
           */}
 
