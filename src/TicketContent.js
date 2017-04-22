@@ -43,35 +43,34 @@ const tickets = [
 ];
 
 export default class TicketContent extends React.Component {
-  constructor(props) {
-    super(props)
+  static childContextTypes = {
+    tickets: React.PropTypes.array,
+    match: React.PropTypes.any,
+  }
 
-    this.state = {
-      currentTicket: tickets[0],
+  getChildContext() {
+    return {
+      tickets,
+      match: this.props.match,
     }
   }
 
-  handleChangeTicket = (id) => {
-    this.setState({
-      currentTicket: tickets[id],
-    })
-  }
-
   render() {
-    const { currentTicket } = this.state
+    const { match } = this.props
+
     return (
-      <Content
-        sidebar={(
-          <TicketSidebar
-            handleClick={this.handleChangeTicket}
-            current={currentTicket.id}
-            tickets={tickets}
-          />
-        )}
-        main={(
-          <TicketMain ticket={currentTicket} />
-        )}
-      />
+      <div>
+        <Content>
+          <TicketSidebar />
+
+          {/*
+            1) Add Redirect to first item if tickets is not empty.
+            2) Add conditionals for rendering not found messages if tickets is empty.
+          */}
+
+          <TicketMain match={match} />
+        </Content>
+      </div>
     )
   }
 }

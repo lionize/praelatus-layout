@@ -27,6 +27,25 @@ const formatDate = date => {
   return new Date(date).toUTCString().match(regex)
 }
 
+export default class TicketMain extends React.Component {
+  static contextTypes = {
+    tickets: React.PropTypes.array,
+  }
+
+  render() {
+    const { tickets } = this.context
+    const { match: { params: { ticketId } } } = this.props
+    const ticket = tickets[ticketId]
+
+    return (
+      <ContentMain
+        headerText={ticket.key}
+        body={<Body ticket={ticket} />}
+      />
+    )
+  }
+}
+
 const Body = ({ ticket }) => (
   <div>
     <CreatedAt>
@@ -46,11 +65,4 @@ const Body = ({ ticket }) => (
       ))}
     </Description>
   </div>
-)
-
-export default ({ ticket }) => (
-  <ContentMain
-    headerText={ticket.key}
-    body={<Body ticket={ticket} />}
-  />
 )

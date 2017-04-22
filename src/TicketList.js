@@ -2,20 +2,34 @@ import React from 'react';
 import glamorous from 'glamorous';
 import TicketListItem from './TicketListItem'
 
-const TicketList = glamorous.div((props, theme) => ({
+const TicketListWrapper = glamorous.div((props, theme) => ({
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
 }));
 
+class TicketList extends React.Component {
+  static contextTypes = {
+    tickets: React.PropTypes.array,
+    match: React.PropTypes.any,
+  }
 
-export default ({ tickets = [], handleClick, current }) => (
-  <TicketList>
-    {tickets.map(ticket =>
+  render() {
+    const { tickets } = this.context
+
+    const items = tickets.map(ticket => (
       <TicketListItem
-        current={current}
-        handleClick={handleClick}
-        key={ticket.id}
         ticket={ticket}
-      />)}
-  </TicketList>
-);
+        key={ticket.id}
+      />
+    ))
+
+    return (
+      <TicketListWrapper>
+        {items}
+      </TicketListWrapper>
+    );
+  }
+}
+
+export default TicketList

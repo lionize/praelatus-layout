@@ -6,9 +6,8 @@ const ContentWrapper = glamorous.div((props, theme) => ({
   height: 'calc(100vh - 50px)',
 }));
 
-export default ({ sidebar, main }) => (
+export default ({ children }) => (
   <ContentWrapper>
-    {sidebar}
-    {main}
+    {children}
   </ContentWrapper>
 )

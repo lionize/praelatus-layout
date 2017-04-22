@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import glamorous, { ThemeProvider } from 'glamorous';
 import { css } from 'glamor';
+import { Route } from 'react-router-dom'
+import Theme from './Theme'
 import Header from './Header'
 import TicketContent from './TicketContent'
 
@@ -19,12 +21,12 @@ const Wrapper = glamorous.div((props, theme) => ({
 
 class App extends Component {
   render() {
-    const { theme } = this.props;
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         <Wrapper>
           <Header />
-          <TicketContent />
+          <Route exact path="/" render={() => <h1>Home</h1>}/>
+          <Route path="/tickets/:ticketId?" component={TicketContent}/>
         </Wrapper>
       </ThemeProvider>
     );

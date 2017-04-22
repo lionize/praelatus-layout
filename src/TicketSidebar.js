@@ -2,15 +2,13 @@ import React from 'react'
 import ContentSidebar from './ContentSidebar'
 import TicketList from './TicketList'
 
-export default ({ handleClick, current, tickets }) => (
+const TicketSidebar = () => (
   <ContentSidebar
     headerText={'Tickets'}
     list={(
-      <TicketList
-        current={current}
-        handleClick={handleClick}
-        tickets={tickets}
-      />
+      <TicketList/>
     )}
   />
 )
+
+export default TicketSidebar

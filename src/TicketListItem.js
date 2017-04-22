@@ -12,37 +12,44 @@ const Summary = glamorous.div((props, theme) => ({
 }));
 
 const ListItem = glamorous.div((props, theme) => ({
+  cursor: 'pointer',
   flex: '1 1 auto',
   display: 'flex',
-  alignItems: 'stretch',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  padding: '0.5em',
   backgroundColor: props.active ? 'rgba(0,0,0,0.040)' : 'inherit',
   '&:hover': {
     backgroundColor: props.active ? 'rgba(0,0,0,0.040)' : 'rgba(0,0,0,0.020)'
   }
 }));
 
-const ItemLink = glamorous.a((props, theme) => ({
-  fontSize: 'inherit',
-  fontWeight: 'inherit',
-  textDecoration: 'none',
-  padding: '0.5em 1em 0.5em 0.5rem',
-  color: 'inherit',
-  flex: '1',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-}));
+export default class TicketListItem extends React.Component {
+  static contextTypes = {
+    match: React.PropTypes.any,
+    router: React.PropTypes.any,
+  }
 
-const TicketListItem = ({ ticket: { id, key, priority, summary }, current, handleClick }) => (
-  <ListItem onClick={() => handleClick(id)} active={id === current}>
-    <ItemLink href="#">
-      <ListItemIcon priority={priority} />
-      <Div padding='0 0.5rem 0 0.5rem'>
-        <Title>{key}</Title>
-        <Summary>{summary}</Summary>
-      </Div>
-    </ItemLink>
-  </ListItem>
-)
+  handleClick(id) {
+    this.context.router.history.push(`/tickets/${id}`)
+  }
 
-export default TicketListItem
+  render() {
+    const { ticket } = this.props
+    const { match } = this.context
+    const ticketId = Number(match.params.ticketId)
+
+    return (
+      <ListItem
+        onClick={() => this.handleClick(ticket.id)}
+        active={ticketId === ticket.id}
+        >
+        <ListItemIcon priority={ticket.priority} />
+        <Div padding='0 0.5rem 0 0.5rem'>
+          <Title>{ticket.key}</Title>
+          <Summary>{ticket.summary}</Summary>
+        </Div>
+      </ListItem>
+    )
+  }
+}
