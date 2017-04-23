@@ -1,5 +1,6 @@
 const Theme = {
   header: {
+    height: '50px',
     background: 'rgba(0,0,0,0)',
   },
   main: { color: '#404040' },

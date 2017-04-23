@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import glamorous from 'glamorous'
 import Content from './Content'
 import TicketSidebar from './TicketSidebar'
 import TicketMain from './TicketMain'
@@ -43,6 +44,13 @@ const tickets = [
   }
 ];
 
+const NotFound = glamorous.div((props, theme) => ({
+  display: 'flex',
+  height: `calc(100vh - ${theme.header.height})`,
+  alignItems: 'center',
+  justifyContent: 'center',
+}))
+
 export default class TicketContent extends React.Component {
   static childContextTypes = {
     tickets: React.PropTypes.array,
@@ -62,6 +70,12 @@ export default class TicketContent extends React.Component {
     if (tickets.length && !match.params.ticketId) {
       return (
         <Redirect to={`/tickets/${tickets[0].id}`} />
+      )
+    }
+
+    if (!tickets.length) {
+      return (
+        <NotFound>No tickets found</NotFound>
       )
     }
 

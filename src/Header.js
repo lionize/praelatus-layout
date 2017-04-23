@@ -2,7 +2,7 @@ import React from 'react'
 import glamorous from 'glamorous'
 
 const MainHeader = glamorous.div((props, theme) => ({
-  height: '50px',
+  height: theme.header.height,
   borderBottom: theme.borders.dark,
   display: 'flex',
   alignItems: 'center',
